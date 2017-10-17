@@ -8,24 +8,37 @@
 </head>
 <body>
   <div id="placeholder"></div>
+  <p />
+  cookie logged-in-expires: <span id='cookie'></span>
+  <p />
+  <!-- cookie logged-in-max-age: <span id='logged-in-max-age'></span> -->
+
   <script type="text/javascript">
     var placeholder = document.getElementById('placeholder');
 
-    if (navigator.standalone === false) {
-      placeholder.innerHTML = 'Please add this to your home screen';
-    } else if (document.cookie.indexOf('logged-in') !== -1) {
+    document.getElementById('cookie').innerHTML = document.cookie;
+    // document.getElementById('logged-in-max-age').innerHTML = document['logged-in-max-age'];
+
+    // if (navigator.standalone === false) {
+      // placeholder.innerHTML = 'Please add this to your home screen';
+    // } else if (document.cookie.indexOf('logged-in') !== -1) {
+    if (document.cookie.indexOf('logged-in') !== -1) {
       placeholder.innerHTML = '<button onclick="javascript:logOut()">Log out</button>';
     } else {
       placeholder.innerHTML = '<button onclick="javascript:logIn()">Log in</button>';
     }
 
     function logIn() {
-      document.cookie = 'logged-in=true; expires=Thu, 16 Jan 2020 12:00:00 UTC';
+      document.cookie = 'loggedinexpires=true; Expires=Thu, 16 Jan 2020 12:00:00 UTC';
+      document.cookie = 'loggedinmaxage=true; Expires=Thu, 16 Jan 2020 12:00:00 UTC';
+      document.cookie = "myCookie=1; expires=Fri, 31 Dec 2020 00:00:00 UTC";
+      console.log("cookie = " + document.cookie);
       window.location.reload(true);
     }
 
     function logOut() {
-      document.cookie = 'logged-in=false; expires=Thu, 12 Nov 2015 12:00:00 UTC';
+      document.cookie = 'loggedinexpires=false; Expires=Thu, 12 Nov 2015 12:00:00 UTC';
+      document.cookie = 'loggedinmaxage=false; Expires=Thu, 12 Nov 2015 12:00:00 UTC; Max-Age=0';
       window.location.reload(true);
     }
   </script>    
