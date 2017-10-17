@@ -22,17 +22,21 @@
 
     document.getElementById('cookie').innerHTML = document.cookie;
 
+    function reloadPage() {
+      window.location = location.href + "&nonce=" + Date.now();
+    }
+
     function logIn() {
       document.cookie = 'loggedinexpires=true; domain=kpshek.github.io; Expires=Thu, 16 Jan 2020 12:00:00 UTC';
       document.cookie = 'loggedinmaxage=true; domain=kpshek.github.io; Expires=Thu, 16 Jan 2020 12:00:00 UTC';
       console.log("cookie = " + document.cookie);
-      window.location.reload(true);
+      reloadPage();
     }
 
     function logOut() {
       document.cookie = 'loggedinexpires=; domain=kpshek.github.io; Expires=Thu, 12 Nov 2015 12:00:00 UTC';
       document.cookie = 'loggedinmaxage=; domain=kpshek.github.io; Expires=Thu, 12 Nov 2015 12:00:00 UTC; Max-Age=0';
-      window.location.reload(true);
+      reloadPage();
     }
   </script>    
 </body>
