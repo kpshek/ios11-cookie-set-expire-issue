@@ -23,7 +23,7 @@
     document.getElementById('cookie').innerHTML = document.cookie;
 
     function reloadPage() {
-      window.location = location.href + "&nonce=" + Date.now();
+      window.location = location.href + "?nonce=" + Date.now();
     }
 
     function logIn() {
