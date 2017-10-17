@@ -23,15 +23,15 @@
     document.getElementById('cookie').innerHTML = document.cookie;
 
     function logIn() {
-      document.cookie = 'loggedinexpires=true; Expires=Thu, 16 Jan 2020 12:00:00 UTC';
-      document.cookie = 'loggedinmaxage=true; Expires=Thu, 16 Jan 2020 12:00:00 UTC';
+      document.cookie = 'loggedinexpires=true; domain=kpshek.github.io; Expires=Thu, 16 Jan 2020 12:00:00 UTC';
+      document.cookie = 'loggedinmaxage=true; domain=kpshek.github.io; Expires=Thu, 16 Jan 2020 12:00:00 UTC';
       console.log("cookie = " + document.cookie);
       window.location.reload(true);
     }
 
     function logOut() {
-      document.cookie = 'loggedinexpires=; Expires=Thu, 12 Nov 2015 12:00:00 UTC';
-      document.cookie = 'loggedinmaxage=; Expires=Thu, 12 Nov 2015 12:00:00 UTC; Max-Age=0';
+      document.cookie = 'loggedinexpires=; domain=kpshek.github.io; Expires=Thu, 12 Nov 2015 12:00:00 UTC';
+      document.cookie = 'loggedinmaxage=; domain=kpshek.github.io; Expires=Thu, 12 Nov 2015 12:00:00 UTC; Max-Age=0';
       window.location.reload(true);
     }
   </script>    
